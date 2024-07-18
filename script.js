@@ -40,7 +40,6 @@ const dragStop = () => {
 }
 
 const updateDots = () => {
-    console.log("in the function");
 
     let currentIndex = Math.round(slider.scrollLeft / firstCardWidth) % (sliderChildrens.length / 3);
 
@@ -49,13 +48,10 @@ const updateDots = () => {
         let x_card = Math.round(slider.scrollLeft / firstCardWidth);
 
         if (x_card > 9) {
-            console.log("index is " + x_card);
             x_card = x_card % 9;
         }
 
         changeTo = x_card / 3;
-        console.log(changeTo);
-        console.log("Current index is " + currentIndex);
 
         dots.forEach((dot, index) => {
             if (index === changeTo - 1) {
@@ -123,8 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const inputValue = this.value.trim();
             const label = formGroup.querySelector('label');
 
-            console.log('Input value:', inputValue);
-            console.log('Label:', label);
 
             if (inputValue !== '') {
                 label.classList.add('filled');
@@ -134,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Rest of your JavaScript code...
 
     const closeFormBtn = document.getElementById('closeFormBtn');
     const formContainer = document.getElementById('contactFormContainer');
@@ -196,8 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Form submission failed. Please try again.');
                 }
             })
-            .catch(error => {
-                console.error('Form submission error:', error);
+            .catch(() => {
                 alert('An error occurred. Please try again.');
             });
     });
